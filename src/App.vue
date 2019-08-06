@@ -4,7 +4,9 @@
       <!-- <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>-->
     </div>
-    <router-view />
+    <transition name="van-fade">
+      <router-view />
+    </transition>
 
     <!-- 底部导航栏 -->
     <section class="home-bar">
@@ -47,7 +49,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  // padding: 30px;
   a {
     font-weight: bold;
     color: #2c3e50;

@@ -30,7 +30,19 @@ a {
   color: $base-font-color;
 }
 
+.van-field__control{
+  line-height: 24px;
+}
+
 // 通用样式
+.text-red {
+  color: $base-red;
+} 
+
+.text-bold{
+  font-weight: 600;
+}
+
 .icon {
   width: 32px;
   height: 32px;

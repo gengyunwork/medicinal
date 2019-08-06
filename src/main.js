@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store/store";
 
 import "normalize.css/normalize.css";
+import "./assets/style/resetVant.scss";
 
 import { Button } from "vant";
 Vue.use(Button);

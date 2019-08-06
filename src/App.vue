@@ -8,30 +8,31 @@
 
     <!-- 底部导航栏 -->
     <section class="home-bar">
-      <div class="bar-item">
-        <img class="icon" src="./assets/logo.png" alt="首页图标" />
-        <div class="bar-text">首页</div>
-      </div>
-      <div class="bar-item">
-        <img class="icon" src="./assets/logo.png" alt="分类图标" />
-        <div class="bar-text">分类</div>
-      </div>
-      <div class="bar-item">
-        <img class="icon" src="./assets/logo.png" alt="购物车图标" />
-        <div class="bar-text">购物车</div>
-      </div>
-      <div class="bar-item">
-        <img class="icon" src="./assets/logo.png" alt="我的图标" />
-        <div class="bar-text">我的</div>
-      </div>
+      <router-link
+        class="bar-item"
+        v-for="(tab_item) in tabBarData"
+        :key="tab_item.text"
+        :to="tab_item.path"
+        active-class="selected"
+      >
+        <van-icon class="t-icon-large" :name="tab_item.icon" />
+        <div class="bar-text">{{tab_item.text}}</div>
+      </router-link>
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  created() {
-    
+  data() {
+    return {
+      tabBarData: [
+        { path: "/home", icon: "wap-home", text: "首页" },
+        { path: "/classify", icon: "apps-o", text: "分类" },
+        { path: "/cart", icon: "shopping-cart-o", text: "购物车" },
+        { path: "/user", icon: "contact", text: "我的" }
+      ]
+    };
   }
 };
 </script>
@@ -41,8 +42,8 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  // text-align: center;
+  // color: #2c3e50;
 }
 
 #nav {
@@ -63,12 +64,16 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 6px;
+  box-shadow: 0 1px 0px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
 
   > .bar-item {
     flex-grow: 1;
-  }
-
-  .bar-text {
+    font-size: 12px;
+    &.selected > .t-icon-large {
+      color: $base-red;
+    }
   }
 }
 </style>

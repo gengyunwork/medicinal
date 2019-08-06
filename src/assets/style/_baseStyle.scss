@@ -1,5 +1,7 @@
-$rootWidth: 750;
-
+$root-width: 750;
+$base-red: #ac0300;
+$base-font-color: #333333;
+$base-bg-color: #f5f5f5;
 $xs: 6px;
 $sm: 8px;
 $lg: 12px;
@@ -45,5 +47,10 @@ img {
 
 // 全局函数
 @function vw($px) {
-  @return ($px / $rootWidth) * 100vw;
+  @return ($px / $root-width) * 100vw;
+}
+
+//清浮动
+br {
+  clear: both;
 }

@@ -10,15 +10,17 @@
         <input type="text" />
       </div>
       <!-- 轮播图 -->
-
-      <van-swipe :autoplay="2000" indicator-color="white">
-        <van-swipe-item v-for="(image, index) in images" :key="index">
-          <div style="width:100%;height:125px;margin-top:10px; border-radius:10px;">
-            <img v-lazy="image" />
-          </div>
-        </van-swipe-item>
-      </van-swipe>
-
+      <div>
+        <van-swipe :autoplay="2000" indicator-color="white">
+          <van-swipe-item v-for="(image, index) in images" :key="index">
+            <div style="width:100%;height:125px;margin-top:10px; border-radius:10px;">
+              <img v-lazy="image" />
+            </div>
+          </van-swipe-item>
+        </van-swipe>
+      </div>
+    </div>
+    <div style="background:white;padding:15px;">
       <!-- 选项卡 -->
       <div class="chooseBar">
         <div class="chooseItem" v-for="(item,index) in chooseBar" :key="index">
@@ -127,13 +129,22 @@
           </div>
           <div class="knowledgeTitle">藏医组方</div>
           <div style="float:right;margin-right:5px;">
-
-          <van-icon name="arrow" />
+            <van-icon name="arrow" />
           </div>
           <br />
         </div>
+
+        <div class="knowledgeBody">
+          <div class="knowledgeItem" v-for="(item, index) in knowledgeBar" :key="index">
+            <div class="knowledgeName">{{item.title}}</div>
+            <div class="knowledgeToast">{{item.toast}}</div>
+            <div class="knowledgeNum">阅读{{item.num}}万</div>
+            <br />
+          </div>
+        </div>
       </div>
     </div>
+    <div style="width:100%;height:50px;border:1px solid white;"></div>
   </div>
 </template>
 
@@ -218,6 +229,13 @@ export default {
         { title: "咳嗽用药", id: 7 }
       ],
       knowledgeImg: require("../../assets/images/homeImg/knowledge2.png"),
+      knowledgeBar: [
+        { title: "藏药的八大优势", toast: "必读", num: "4.8" },
+        { title: "心脑血管类病患的良友--七十味珍珠丸", toast: "置顶", num: "5.0" },
+        { title: "二十五味鬼臼丸可以治疗妇科炎症吗？", toast: "置顶", num: "4.8" },
+        { title: "西藏颁布首个地区藏药材标准", toast: "热", num: "3.3" },
+        { title: "神奇的藏医药—“欧曲坐珠钦莫”",toast: "热", num: "4.8" },
+      ]
     };
   },
   components: {
@@ -306,10 +324,10 @@ export default {
 }
 .newHead,
 .hotHead,
-.methodHead,
-.knowledgeHead {
+.methodHead {
   height: 30px;
 }
+
 .newIcon,
 .hotIcon,
 .methodIcon,
@@ -365,5 +383,32 @@ export default {
 .imgBar {
   margin-top: 15px;
   border-radius: 10px;
+}
+.knowledgeItem {
+  width: 100%;
+  height: 58px;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+.knowledgeName {
+  font-size: 14px;
+  margin-top: 10.5px;
+}
+.knowledgeToast {
+  // height: 15px;
+  border: 2px solid #ac0300;
+  text-align: center;
+  font-size: 10px;
+  line-height: 12px;
+  padding: 2.5px 5px;
+  color: #ac0300;
+  float: left;
+  margin-top: 10px;
+}
+.knowledgeNum {
+  float: left;
+  color: #999999;
+  font-size: 10px;
+  margin-left: 10px;
+  margin-top: 15px;
 }
 </style>

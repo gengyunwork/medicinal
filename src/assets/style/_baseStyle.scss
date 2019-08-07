@@ -11,6 +11,12 @@ $xl: 16px;
 html {
   box-sizing: border-box;
   font-size: 16px;
+  color: $base-font-color;
+  background-color: $base-bg-color;
+  width: 100%;
+}
+body {
+  background: white;
 }
 
 *,
@@ -19,11 +25,26 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  color: $base-font-color;
+}
+
+.van-field__control{
+  line-height: 24px;
+}
+
 // 通用样式
+.text-red {
+  color: $base-red;
+} 
+
+.text-bold{
+  font-weight: 600;
+}
+
 .icon {
   width: 32px;
   height: 32px;
-
   &.small {
     width: 22px;
     height: 22px;
@@ -35,7 +56,131 @@ html {
   }
 }
 
+// 字体图标
+.t-icon {
+  font-size: 18px;
+  &-small {
+    font-size: 14px;
+  }
+  &-large {
+    font-size: 28px;
+  }
+}
 
+.m {
+  margin: 12px;
+  &-l {
+    margin: 18px;
+  }
+  &-s {
+    margin: 6px;
+  }
+  &-0 {
+    margin: 0;
+  }
+}
+
+.mx {
+  margin-right: 12px;
+  margin-left: 12px;
+  &-l {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+  &-s {
+    margin-right: 6px;
+    margin-left: 6px;
+  }
+}
+
+.ml {
+  margin-left: 12px;
+  &-l {
+    margin-left: 18px;
+  }
+  &-s {
+    margin-left: 6px;
+  }
+}
+
+.mr {
+  margin-right: 12px;
+  &-l {
+    margin-right: 18px;
+  }
+  &-s {
+    margin-right: 6px;
+  }
+}
+
+.mb {
+  margin-bottom: 12px;
+  &-l {
+    margin-bottom: 18px;
+  }
+  &-s {
+    margin-bottom: 6px;
+  }
+}
+
+.p {
+  padding: 12px;
+  &-l {
+    padding: 18px;
+  }
+  &-m {
+    padding: 10px;
+  }
+  &-s {
+    padding: 6px;
+  }
+  &-0 {
+    padding: 0;
+  }
+}
+
+.px {
+  padding-right: 12px;
+  padding-left: 12px;
+  &-l {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+  &-s {
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+}
+
+.pl {
+  padding-left: 12px;
+  &-l {
+    padding-left: 18px;
+  }
+  &-s {
+    padding-left: 6px;
+  }
+}
+
+.pr {
+  padding-right: 12px;
+  &-l {
+    padding-right: 18px;
+  }
+  &-s {
+    padding-right: 6px;
+  }
+}
+
+.pb {
+  padding-bottom: 12px;
+  &-l {
+    padding-bottom: 18px;
+  }
+  &-s {
+    padding-bottom: 6px;
+  }
+}
 
 img {
   width: 100%;

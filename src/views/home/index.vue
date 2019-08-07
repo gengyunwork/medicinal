@@ -113,11 +113,17 @@
           <br />
         </div>
         <van-tabs>
-          <van-tab
-            v-for="(item,index) in methodBar"
-            :key="index"
-            :title="item.title"
-          >内容 {{ item.id}}</van-tab>
+          <van-tab v-for="(item,index) in methodBar" :key="index" :title="item.title">
+            <div class="cardList">
+              <gy-commodity-card
+                v-for="(value , index1) in item.cardList"
+                :key="index1"
+                :data="value"
+                class="cardItem"
+              ></gy-commodity-card>
+            </div>
+            <br />
+          </van-tab>
         </van-tabs>
       </div>
 
@@ -149,6 +155,7 @@
 </template>
 
 <script>
+import CommodityCard from "../../components/CommodityCard.vue";
 export default {
   data() {
     return {
@@ -220,21 +227,148 @@ export default {
       imgBar: require("../../assets/images/homeImg/lunboImg.png"),
       methodImg: require("../../assets/images/homeImg/method.png"),
       methodBar: [
-        { title: "感冒发烧", id: 1 },
-        { title: "咳嗽用药", id: 2 },
-        { title: "咳嗽用药", id: 3 },
-        { title: "咳嗽用药", id: 4 },
-        { title: "咳嗽用药", id: 5 },
-        { title: "咳嗽用药", id: 6 },
-        { title: "咳嗽用药", id: 7 }
+        {
+          title: "感冒发烧",
+          id: 1,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 2,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 3,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 4,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 5,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        }
       ],
       knowledgeImg: require("../../assets/images/homeImg/knowledge2.png"),
       knowledgeBar: [
         { title: "藏药的八大优势", toast: "必读", num: "4.8" },
-        { title: "心脑血管类病患的良友--七十味珍珠丸", toast: "置顶", num: "5.0" },
-        { title: "二十五味鬼臼丸可以治疗妇科炎症吗？", toast: "置顶", num: "4.8" },
+        {
+          title: "心脑血管类病患的良友--七十味珍珠丸",
+          toast: "置顶",
+          num: "5.0"
+        },
+        {
+          title: "二十五味鬼臼丸可以治疗妇科炎症吗？",
+          toast: "置顶",
+          num: "4.8"
+        },
         { title: "西藏颁布首个地区藏药材标准", toast: "热", num: "3.3" },
-        { title: "神奇的藏医药—“欧曲坐珠钦莫”",toast: "热", num: "4.8" },
+        { title: "神奇的藏医药—“欧曲坐珠钦莫”", toast: "热", num: "4.8" }
       ]
     };
   },
@@ -242,6 +376,7 @@ export default {
     // "van-search":Search
     // "van-swipe ": Swipe,
     // "van-swipe-item": SwipeItem
+    [CommodityCard.name]: CommodityCard
   }
 };
 </script>
@@ -317,8 +452,7 @@ export default {
 }
 .newBar,
 .hotBar,
-.methodBar,
-.knowledgeBar {
+.methodBar {
   width: 100%;
   margin-top: 15px;
 }
@@ -410,5 +544,17 @@ export default {
   font-size: 10px;
   margin-left: 10px;
   margin-top: 15px;
+}
+.cardList {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  width: 100%;
+}
+.cardItem {
+  width: 47%;
+  margin-bottom: 10px;
 }
 </style>

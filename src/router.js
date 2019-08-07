@@ -6,14 +6,16 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
-  routes: [
-    {
+  routes: [{
       path: "/",
       redirect: "/home"
     },
     {
       path: "/home",
       name: "home",
+      meta: {
+        title: "甘露藏药"
+      },
       component: () => import("./views/home/index.vue")
     },
     {
@@ -29,7 +31,18 @@ export default new Router({
     {
       path: "/user",
       name: "user",
+      meta: {
+        title: "我的"
+      },
       component: () => import("./views/user/index.vue")
+    },
+    {
+      path: "/aboutUs",
+      name: "aboutUs",
+      meta: {
+        title: "关于我们"
+      },
+      component: () => import("./views/user/aboutUs.vue")
     }
   ]
 });

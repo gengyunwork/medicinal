@@ -10,10 +10,11 @@ $xl: 16px;
 // 重置样式
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
   color: $base-font-color;
   background-color: $base-bg-color;
   width: 100%;
+  padding-bottom: 56px;
 }
 body {
   background: white;
@@ -29,17 +30,29 @@ a {
   color: $base-font-color;
 }
 
-.van-field__control{
+.van-field__control {
   line-height: 24px;
 }
 
 // 通用样式
 .text-red {
   color: $base-red;
-} 
+}
 
-.text-bold{
+.text-bold {
   font-weight: 600;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.radius {
+  border-radius: 8px;
+}
+
+.round {
+  border-radius: 50%;
 }
 
 .icon {
@@ -190,6 +203,9 @@ img {
   font-size: 12px;
 }
 
+.sticky {
+  position: sticky;
+}
 // 全局函数
 @function vw($px) {
   @return ($px / $root-width) * 100vw;

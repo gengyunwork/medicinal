@@ -12,13 +12,13 @@
     <section class="home-bar">
       <router-link
         class="bar-item"
-        v-for="(tab_item) in tabBarData"
+        v-for="tab_item in tabBarData"
         :key="tab_item.text"
         :to="tab_item.path"
         active-class="selected"
       >
         <van-icon class="t-icon-large" :name="tab_item.icon" />
-        <div class="bar-text">{{tab_item.text}}</div>
+        <div class="bar-text">{{ tab_item.text }}</div>
       </router-link>
     </section>
   </div>
@@ -44,8 +44,7 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  color: #2c3e50;
+  // color: #2c3e50;
 }
 
 #nav {
@@ -69,7 +68,8 @@ export default {
   padding: 6px;
   box-shadow: 0 1px 0px 2px rgba(0, 0, 0, 0.2);
   background-color: white;
-
+  z-index: 999;
+  
   > .bar-item {
     flex-grow: 1;
     font-size: 12px;

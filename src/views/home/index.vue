@@ -147,67 +147,67 @@ export default {
       ],
       chooseBar: [
         {
-          icon: require("../../assets/images/home/shoper.png"),
+          icon: require("../../assets/images/homeImg/shoper.png"),
           text: "店长推荐"
         },
         {
-          icon: require("../../assets/images/home/methods.png"),
+          icon: require("../../assets/images/homeImg/methods.png"),
           text: "藏药组方"
         },
         {
-          icon: require("../../assets/images/home/knowledge.png"),
+          icon: require("../../assets/images/homeImg/knowledge.png"),
           text: "藏药知识"
         },
         {
-          icon: require("../../assets/images/home/special.png"),
+          icon: require("../../assets/images/homeImg/special.png"),
           text: "西藏特产"
         }
       ],
       adText: "“我与藏医聊藏药”之七十味珍珠丸专题第一期",
-      redImg: require("../../assets/images/home/red.png"),
+      redImg: require("../../assets/images/homeImg/red.png"),
       newBar: [
         {
-          img: require("../../assets/images/home/newImg.png"),
+          img: require("../../assets/images/homeImg/newImg.png"),
           id: 1,
           title: "失眠必备",
           ps: "加20元多1件"
         },
         {
-          img: require("../../assets/images/home/newImg.png"),
+          img: require("../../assets/images/homeImg/newImg.png"),
           id: 2,
           title: "失眠必备",
           ps: "加20元多1件"
         },
         {
-          img: require("../../assets/images/home/newImg.png"),
+          img: require("../../assets/images/homeImg/newImg.png"),
           id: 3,
           title: "东阿阿胶",
           ps: "抢40元专享卷"
         }
       ],
-      hotImg: require("../../assets/images/home/fire.png"),
+      hotImg: require("../../assets/images/homeImg/fire.png"),
       hotBar: [
         {
           title: "感冒发烧",
           ps: "感康12片装",
           price: "88.00",
-          img: require("../../assets/images/home/newImg.png")
+          img: require("../../assets/images/homeImg/newImg.png")
         },
         {
           title: "护肝利喉",
           ps: "枇杷膏 150ml",
           price: "88.00",
-          img: require("../../assets/images/home/newImg.png")
+          img: require("../../assets/images/homeImg/newImg.png")
         },
         {
           title: "心脑血管",
           ps: "感康12片装",
           price: "88.00",
-          img: require("../../assets/images/home/newImg.png")
+          img: require("../../assets/images/homeImg/newImg.png")
         }
       ],
-      imgBar: require("../../assets/images/home/lunboImg.png"),
-      methodImg: require("../../assets/images/home/method.png"),
+      imgBar: require("../../assets/images/homeImg/lunboImg.png"),
+      methodImg: require("../../assets/images/homeImg/method.png"),
       methodBar: [
         { title: "感冒发烧", id: 1 },
         { title: "咳嗽用药", id: 2 },
@@ -217,7 +217,7 @@ export default {
         { title: "咳嗽用药", id: 6 },
         { title: "咳嗽用药", id: 7 }
       ],
-      knowledgeImg: require("../../assets/images/home/knowledge2.png"),
+      knowledgeImg: require("../../assets/images/homeImg/knowledge2.png"),
     };
   },
   components: {

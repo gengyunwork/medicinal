@@ -49,7 +49,6 @@ export default {
     activeKey(val) {
       let a = document.createElement("a");
       a.href = "#gy-tag-" + val;
-      console.log(a);
       a.click();
     }
   },
@@ -83,7 +82,7 @@ export default {
     let mainEle = this.$refs.main.$el,
       children = mainEle.children,
       _this = this;
-    mainEle.onscroll = debounce(function(e) {
+    mainEle.onscroll = debounce(function() {
       for (let index = 0, len = children.length; index < len; index++) {
         let shouldChangeTag =
           children[index].getBoundingClientRect().top > 0 &&
@@ -92,7 +91,7 @@ export default {
           _this.activeKey = index;
         }
       }
-    }, 300);
+    }, 100);
   },
   components: {
     [Sidebar.name]: Sidebar,
@@ -105,18 +104,6 @@ export default {
 };
 </script>
 
-<style>
-.classify .van-index-bar__sidebar {
-  position: absolute;
-  /* top: 178px; */
-  left: 0;
-  right: calc(100vw - 85px);
-}
-.classify .van-index-bar__sidebar > .van-index-bar__index {
-  height: 59px;
-}
-</style>
-
 <style lang="scss" scoped>
 .main {
   height: calc(100vh - 110px);
@@ -124,4 +111,3 @@ export default {
   scroll-behavior: smooth;
 }
 </style>
-

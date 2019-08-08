@@ -30,6 +30,16 @@ export default new Router({
       path: "/user",
       name: "user",
       component: () => import("./views/user/index.vue")
+    },
+    {
+      path: "/distribute",
+      name: "distribute",
+      component: () => import("./views/user/distribute/index.vue")
+    },
+    {
+      path: "/withdraw",
+      name: "withdraw",
+      component: () => import("./views/user/distribute/withdraw.vue")
     }
   ]
 });

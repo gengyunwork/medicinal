@@ -13,7 +13,9 @@
       <div>
         <van-swipe :autoplay="2000" indicator-color="white">
           <van-swipe-item v-for="(image, index) in images" :key="index">
-            <div style="width:100%;height:125px;margin-top:10px; border-radius:10px;">
+            <div 
+            style="width:100%;height:125px;margin-top:10px; border-radius:10px;"
+            >
               <img v-lazy="image" />
             </div>
           </van-swipe-item>
@@ -23,12 +25,12 @@
     <div style="background:white;padding:15px;">
       <!-- 选项卡 -->
       <div class="chooseBar">
-        <div class="chooseItem" v-for="(item,index) in chooseBar" :key="index">
+        <div class="chooseItem" v-for="(item, index) in chooseBar" :key="index">
           <div class="chooseIcon">
             <img :src="item.icon" alt />
           </div>
           <div class="chooseText">
-            <span>{{item.text}}</span>
+            <span>{{ item.text }}</span>
           </div>
         </div>
       </div>
@@ -37,7 +39,7 @@
         <div class="adText">
           甘露
           <span>资讯</span>
-          |{{adText}}
+          |{{ adText }}
         </div>
         <div class="adMore">更多</div>
         <br style="clear:both" />
@@ -52,14 +54,16 @@
           <br style="clear:both" />
         </div>
         <div class="newBody">
-          <div v-for="(item,index) in newBar" :key="index">
+          <div v-for="(item, index) in newBar" :key="index">
             <div v-if="item.id == 1" class="newItem1">
               <img :src="item.img" alt />
             </div>
             <div v-else class="newItem2">
               <div style="float:left">
-                <div style="padding:12px;font-size:14px;">{{item.title}}</div>
-                <div style="font-size:13px;color:#666666;margin-left:5px;">{{item.ps}}</div>
+                <div style="padding:12px;font-size:14px;">{{ item.title }}</div>
+                <div style="font-size:13px;color:#666666;margin-left:5px;">
+                  {{ item.ps }}
+                  </div>
               </div>
               <div class="newImg">
                 <img :src="item.img" alt />
@@ -83,13 +87,15 @@
           <!-- <div v-for="(item,index) in hotBar" :key="index"></div> -->
           <van-grid :border="false" :column-num="3">
             <van-grid-item
-              v-for="(item,index) in hotBar"
+              v-for="(item, index) in hotBar"
               :key="index"
               style="border:1px solid rgba(221,221,221,1)"
             >
-              <div style="font-size:14px;">{{item.title}}</div>
-              <div style="color:#666666;font-size:13px;margin-top:10px">{{item.ps}}</div>
-              <div class="hotPrice">￥{{item.price}}</div>
+              <div style="font-size:14px;">{{ item.title }}</div>
+              <div style="color:#666666;font-size:13px;margin-top:10px">
+                {{ item.ps }}
+              </div>
+              <div class="hotPrice">￥{{ item.price }}</div>
               <div style="margin-top:10px;">
                 <img :src="item.img" alt />
               </div>
@@ -114,10 +120,10 @@
         </div>
         <van-tabs>
           <van-tab
-            v-for="(item,index) in methodBar"
+            v-for="(item, index) in methodBar"
             :key="index"
             :title="item.title"
-          >内容 {{ item.id}}</van-tab>
+          >内容 {{ item.id }}</van-tab>
         </van-tabs>
       </div>
 
@@ -135,10 +141,13 @@
         </div>
 
         <div class="knowledgeBody">
-          <div class="knowledgeItem" v-for="(item, index) in knowledgeBar" :key="index">
-            <div class="knowledgeName">{{item.title}}</div>
-            <div class="knowledgeToast">{{item.toast}}</div>
-            <div class="knowledgeNum">阅读{{item.num}}万</div>
+          <div 
+          class="knowledgeItem" 
+          v-for="(item, index) in knowledgeBar" 
+          :key="index">
+            <div class="knowledgeName">{{ item.title }}</div>
+            <div class="knowledgeToast">{{ item.toast }}</div>
+            <div class="knowledgeNum">阅读{{ item.num }}万</div>
             <br />
           </div>
         </div>
@@ -231,10 +240,18 @@ export default {
       knowledgeImg: require("../../assets/images/homeImg/knowledge2.png"),
       knowledgeBar: [
         { title: "藏药的八大优势", toast: "必读", num: "4.8" },
-        { title: "心脑血管类病患的良友--七十味珍珠丸", toast: "置顶", num: "5.0" },
-        { title: "二十五味鬼臼丸可以治疗妇科炎症吗？", toast: "置顶", num: "4.8" },
+        {
+          title: "心脑血管类病患的良友--七十味珍珠丸",
+          toast: "置顶",
+          num: "5.0"
+        },
+        {
+          title: "二十五味鬼臼丸可以治疗妇科炎症吗？",
+          toast: "置顶",
+          num: "4.8"
+        },
         { title: "西藏颁布首个地区藏药材标准", toast: "热", num: "3.3" },
-        { title: "神奇的藏医药—“欧曲坐珠钦莫”",toast: "热", num: "4.8" },
+        { title: "神奇的藏医药—“欧曲坐珠钦莫”", toast: "热", num: "4.8" }
       ]
     };
   },

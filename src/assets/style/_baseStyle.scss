@@ -42,9 +42,16 @@ a {
 .text-bold {
   font-weight: 600;
 }
+.text-center {
+  text-align: center;
+}
 
 .bg-white {
   background-color: white;
+}
+
+.bg-grey{
+  background-color:$base-bg-color;
 }
 
 .radius {

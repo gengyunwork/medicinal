@@ -14,6 +14,9 @@ export default new Router({
     {
       path: "/home",
       name: "home",
+      meta: {
+        title: "甘露藏药"
+      },
       component: () => import("./views/home/index.vue")
     },
     {
@@ -29,6 +32,9 @@ export default new Router({
     {
       path: "/user",
       name: "user",
+      meta: {
+        title: "我的"
+      },
       component: () => import("./views/user/index.vue")
     },
     {
@@ -40,6 +46,14 @@ export default new Router({
       path: "/withdraw",
       name: "withdraw",
       component: () => import("./views/user/distribute/withdraw.vue")
+    },
+    {
+      path: "/aboutUs",
+      name: "aboutUs",
+      meta: {
+        title: "关于我们"
+      },
+      component: () => import("./views/user/aboutUs.vue")
     }
   ]
 });

@@ -119,11 +119,17 @@
           <br />
         </div>
         <van-tabs>
-          <van-tab
-            v-for="(item, index) in methodBar"
-            :key="index"
-            :title="item.title"
-          >内容 {{ item.id }}</van-tab>
+          <van-tab v-for="(item,index) in methodBar" :key="index" :title="item.title">
+            <div class="cardList">
+              <gy-commodity-card
+                v-for="(value , index1) in item.cardList"
+                :key="index1"
+                :data="value"
+                class="cardItem"
+              ></gy-commodity-card>
+            </div>
+            <br />
+          </van-tab>
         </van-tabs>
       </div>
 
@@ -158,6 +164,7 @@
 </template>
 
 <script>
+import CommodityCard from "../../components/CommodityCard.vue";
 export default {
   data() {
     return {
@@ -229,13 +236,132 @@ export default {
       imgBar: require("../../assets/images/homeImg/lunboImg.png"),
       methodImg: require("../../assets/images/homeImg/method.png"),
       methodBar: [
-        { title: "感冒发烧", id: 1 },
-        { title: "咳嗽用药", id: 2 },
-        { title: "咳嗽用药", id: 3 },
-        { title: "咳嗽用药", id: 4 },
-        { title: "咳嗽用药", id: 5 },
-        { title: "咳嗽用药", id: 6 },
-        { title: "咳嗽用药", id: 7 }
+        {
+          title: "感冒发烧",
+          id: 1,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 2,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 3,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 4,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        },
+        {
+          title: "咳嗽用药",
+          id: 5,
+          cardList: [
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            },
+            {
+              imgUrl: require("../../assets/images/medicinal.png"),
+              title: "脑梗，血栓",
+              desc: "七十味中药材就、+二十五味珍珠丸",
+              price: 360
+            }
+          ]
+        }
       ],
       knowledgeImg: require("../../assets/images/homeImg/knowledge2.png"),
       knowledgeBar: [
@@ -259,6 +385,7 @@ export default {
     // "van-search":Search
     // "van-swipe ": Swipe,
     // "van-swipe-item": SwipeItem
+    [CommodityCard.name]: CommodityCard
   }
 };
 </script>
@@ -334,8 +461,7 @@ export default {
 }
 .newBar,
 .hotBar,
-.methodBar,
-.knowledgeBar {
+.methodBar {
   width: 100%;
   margin-top: 15px;
 }
@@ -427,5 +553,17 @@ export default {
   font-size: 10px;
   margin-left: 10px;
   margin-top: 15px;
+}
+.cardList {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  width: 100%;
+}
+.cardItem {
+  width: 47%;
+  margin-bottom: 10px;
 }
 </style>

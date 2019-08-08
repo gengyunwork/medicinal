@@ -1,60 +1,39 @@
-// 提现页面
 <template>
   <div>
-    <div class="top-pane">
-      <div>总佣金（元）</div>
-      <div style="font-size:20px;margin-top:24px;">00.00</div>
-      <span class="withdraw">提现</span>
-    </div>
-    <van-row style="padding:12px;" gutter="10">
-      <van-col span="12">
-        <span>可用佣金（元）</span>
-        <span class="text-red">0.00</span>
-      </van-col>
-      <van-col span="12" style="text-align:right;">
-        <span>冻结佣金（元）</span>
-        <span class="text-red">0.00</span>
-      </van-col>
-    </van-row>
-
-    <div class="text-center bg-grey" style="padding-top:80px;" v-if="fasle">
-      <img
-        style="width:auto;height:48px;transform:translateY(65%);"
-        src="../../../assets/images/distribute/file.png"
-        alt
-        srcset
-      />
-      <div style="height:1px;width:70%;background:#ccc;margin-left:15%;"></div>
-      <br />
-      <br />
-      <br />
-      <div style="color:#999;">目前尚无佣金</div>
-      <div>
-        <span class="inviteBtn">邀请好友赚钱</span>
+    <!-- 顶部用户信息卡片 -->
+    <div class="Head">
+      <div class="headImg">
+        <img :src="userImg" alt />
+      </div>
+      <div style="float:left; margin-left: 15px; margin-top:5px;">
+        <div class="headName">
+          <van-divider style="color:#FFF;margin:8px 0;">{{ userName }}</van-divider>
+        </div>
+        <small>可提取金额(元) &nbsp;380.00</small>
       </div>
     </div>
-    <div v-else>
-      <div style="border-top:12px solid #f5f5f5;" v-for="item in 4" :key="item">
-        <van-cell style="padding:4px 12px;">
-          <template slot="title">
-            <van-divider style="margin:0;width:60%;color:#333;">李若云</van-divider>
-          </template>
-          <template>
-            <span class="text-red" v-show="item%2">待消费</span>
-            <span class="text-grey" v-show="item%2==0">已消费</span>
-          </template>
-        </van-cell>
-
-        <van-cell :title-style="{'flex':2}">
-          <template slot="title">
-            <div class="custom-title text-small">报名时间：2019-04-03</div>
-            <div class="custom-title text-small">报名时间：2019-04-03至2019-12-12</div>
-          </template>
-          <template>
-            <span class="text-small">佣金金额：35.00</span>
-          </template>
-        </van-cell>
-      </div>
+    <!-- 提现表单 -->
+    <h4 style="padding-left:16px;">提现金额（元）</h4>
+    <van-cell-group>
+      <van-field v-model="cashWithdrawa" center clearable placeholder="请输入提现金额" type="number">
+        <span slot="label" style="font-size:22px;">￥</span>
+        <span slot="button" class="text-red">全部提现</span>
+      </van-field>
+    </van-cell-group>
+    <div style="padding-left:14px;padding-top:14px;font-size:12px;color:#969696;">温馨提示，佣金满100元才可提现</div>
+    <van-cell value="提现至" is-link>
+      <template slot="title">
+        <van-image
+          width="18"
+          height="18"
+          style="vertical-align:middle; margin-right:12px;"
+          :src="require('../../../assets/images/distribute/wechat.png')"
+        />
+        <span>微信</span>
+      </template>
+    </van-cell>
+    <div class="bg-grey p-l text-center">
+      <div class="applyBtn" :class="{'confirm':cashWithdrawa}" @click="confirm">申请提现</div>
     </div>
   </div>
 </template>
@@ -63,43 +42,48 @@
 export default {
   data() {
     return {
-      brokerageData: {
-        total: 5000,
-        freezen: 1900
-      }
+      userImg: require("../../../assets/images/userImg/userImg.png"),
+      userName: "章鱼哥",
+      cashWithdrawa: ""
     };
+  },
+  methods: {
+    confirm() {
+      if (this.cashWithdrawa) {
+        this.$router.push("/withdrawsuccess");
+      }
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.top-pane {
-  background: $base-red;
-  text-align: center;
-  color: white;
-  padding: {
-    top: 36px;
-    bottom: 36px;
-  }
-  > .withdraw {
-    display: inline-block;
-    padding: 2px 18px;
-    border: 1px solid #fff;
-    border-radius: 6px;
-    margin-top: 16px;
-  }
+.Head {
+  width: 100%;
+  height: 140px;
+  background: #ac0300;
+  padding: 20px;
+  color: #fff;
 }
-.text-red {
-  color: $base-red;
+.headImg {
+  width: vw(132);
+  height: auto;
+  float: left;
+}
+.headName {
+  color: white;
+  font-size: 16px;
 }
 
-.inviteBtn {
-  display: inline-block;
-  padding: 2px 18px;
-  border: 1px solid $base-red;
-  border-radius: 6px;
-  margin-top: 16px;
-  color: $base-red;
+.applyBtn {
+  width: 80%;
+  margin: 40px auto;
+  padding: 10px 0;
+  background: #aaa;
+  &.confirm {
+    background: $base-red;
+    color: #fff;
+  }
 }
 </style>
 

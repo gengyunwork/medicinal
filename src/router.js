@@ -43,9 +43,12 @@ export default new Router({
       component: () => import("./views/user/distribute/index.vue")
     },
     {
-      path: "/withdraw",
-      name: "withdraw",
-      component: () => import("./views/user/distribute/withdraw.vue")
+      path: "/brokerage",
+      name: "brokerage",
+      meta: {
+        title: "我的佣金"
+      },
+      component: () => import("./views/user/distribute/brokerage.vue")
     },
     {
       path: "/aboutUs",
@@ -54,6 +57,22 @@ export default new Router({
         title: "关于我们"
       },
       component: () => import("./views/user/aboutUs.vue")
+    },
+    {
+      path: "/withdrawsuccess",
+      name: "withdrawsuccess",
+      meta: {
+        title: "提现成功"
+      },
+      component: () => import("./views/user/distribute/withdrawSuccess.vue")
+    },
+    {
+      path: "/withdraw",
+      name: "withdraw",
+      meta: {
+        title: "提现"
+      },
+      component: () => import("./views/user/distribute/withdraw.vue")
     }
   ]
 });

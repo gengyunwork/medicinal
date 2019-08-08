@@ -9,7 +9,7 @@
     </transition>
 
     <!-- 底部导航栏 -->
-    <section class="home-bar">
+    <section class="home-bar" v-show="showTab">
       <router-link
         class="bar-item"
         v-for="tab_item in tabBarData"
@@ -33,8 +33,14 @@ export default {
         { path: "/classify", icon: "apps-o", text: "分类" },
         { path: "/cart", icon: "shopping-cart-o", text: "购物车" },
         { path: "/user", icon: "contact", text: "我的" }
-      ]
+      ],
+      showTab: false
     };
+  },
+  watch: {
+    $route(val) {
+      this.showTab = this.tabBarData.some(item => item.path == val.path);
+    }
   }
 };
 </script>
@@ -69,7 +75,7 @@ export default {
   box-shadow: 0 1px 0px 2px rgba(0, 0, 0, 0.2);
   background-color: white;
   z-index: 999;
-  
+
   > .bar-item {
     flex-grow: 1;
     font-size: 12px;

@@ -2,7 +2,7 @@
 <template>
   <div>
     <!-- 卡片展示 -->
-    <van-row class="p-l" style="color:#FFF;" gutter="8">
+    <van-row class="p-l" style="color:#FFF;margin-right:0;" gutter="8">
       <van-col class="dist-card" span="12">
         <div>
           <div>我的佣金（元）</div>
@@ -36,7 +36,7 @@
         <span>提现</span>
       </template>
     </van-cell>
-    <van-cell is-link>
+    <van-cell is-link to="/record">
       <template slot="title">
         <i class="cell-icon cell-2" slot="icon"></i>
         <span>提现记录</span>
@@ -44,7 +44,7 @@
     </van-cell>
     <div style="padding-top:20px;background:#f5f5f5;"></div>
     <!-- 我的团队 邀请分销 分销说明 -->
-    <van-cell is-link to="myTeam">
+    <van-cell is-link to="/myTeam">
       <template slot="title">
         <i class="cell-icon cell-team" slot="icon"></i>
         <span>我的团队</span>
@@ -56,7 +56,7 @@
         <span>邀请分销成员</span>
       </template>
     </van-cell>
-    <van-cell is-link>
+    <van-cell is-link to="/explain">
       <template slot="title">
         <i class="cell-icon cell-illustration" slot="icon"></i>
         <span>分销说明</span>

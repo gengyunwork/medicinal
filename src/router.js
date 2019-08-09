@@ -80,6 +80,22 @@ export default new Router({
         title: "提现"
       },
       component: () => import("./views/user/distribute/withdraw.vue")
+    },
+    {
+      path: "/record",
+      name: "record",
+      meta: {
+        title: "提现记录"
+      },
+      component: () => import("./views/user/distribute/record.vue")
+    },
+    {
+      path: "/explain",
+      name: "explain",
+      meta: {
+        title: "分销说明"
+      },
+      component: () => import("./views/user/distribute/explain.vue")
     }
   ]
 });

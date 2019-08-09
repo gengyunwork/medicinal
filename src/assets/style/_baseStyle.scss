@@ -39,8 +39,8 @@ a {
   color: $base-red;
 }
 
-.text-bold {
-  font-weight: 600;
+.text-grey{
+  color: #666;
 }
 .text-center {
   text-align: center;
@@ -172,6 +172,19 @@ a {
   }
 }
 
+.py {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  &-l {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  &-s {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
 .pl {
   padding-left: 12px;
   &-l {
@@ -201,13 +214,29 @@ a {
     padding-bottom: 6px;
   }
 }
-
+.pt {
+  padding-top: 12px;
+  &-l {
+    padding-top: 18px;
+  }
+  &-s {
+    padding-top: 6px;
+  }
+}
 img {
   width: 100%;
 }
 
 .text-small {
   font-size: 12px;
+}
+
+.text-large {
+  font-size: 18px;
+}
+
+.text-bold{
+  font-weight: 550;
 }
 
 .sticky {

@@ -21,11 +21,17 @@ export default new Router({
     {
       path: "/classify",
       name: "classify",
+      meta: {
+        title: "分类"
+      },
       component: () => import("./views/classify/index.vue")
     },
     {
       path: "/cart",
       name: "cart",
+      meta: {
+        title: "购物车"
+      },
       component: () => import("./views/cart/index.vue")
     },
     {
@@ -39,6 +45,9 @@ export default new Router({
     {
       path: "/distribute",
       name: "distribute",
+      meta: {
+        title: "分销中心"
+      },
       component: () => import("./views/user/distribute/index.vue")
     },
     {
@@ -82,6 +91,7 @@ export default new Router({
       component: () => import("./views/user/distribute/withdraw.vue")
     },
     {
+<<<<<<< HEAD
       path: "/myCard",
       name: "myCard",
       meta: {
@@ -128,6 +138,30 @@ export default new Router({
         title: "设置手机号"
       },
       component: () => import("./views/user/settings/changePhone.vue")
+=======
+      path: "/record",
+      name: "record",
+      meta: {
+        title: "提现记录"
+      },
+      component: () => import("./views/user/distribute/record.vue")
+    },
+    {
+      path: "/explain",
+      name: "explain",
+      meta: {
+        title: "分销说明"
+      },
+      component: () => import("./views/user/distribute/explain.vue")
+    },
+    {
+      path: "/detail",
+      name: "detail",
+      meta: {
+        title: "商品详情"
+      },
+      component: () => import("./views/commodity/commodity.vue")
+>>>>>>> 400880ea2fde27bfb564fdf1a5f6676ab79f5394
     }
   ]
 });

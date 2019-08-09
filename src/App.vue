@@ -40,6 +40,7 @@ export default {
   watch: {
     $route(val) {
       this.showTab = this.tabBarData.some(item => item.path == val.path);
+      document.title = val.meta.title;
     }
   }
 };

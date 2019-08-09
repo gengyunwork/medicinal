@@ -8,7 +8,7 @@
         <div class="headName">
           <span>{{userName}}</span>
         </div>
-        <div class="headBtn">
+        <div class="headBtn" @click="linkToSettings">
           <van-icon name="setting" color="white" />
           <div>
             <span>账号设置</span>
@@ -57,6 +57,7 @@
 export default {
   data() {
     return {
+      user_id :1,
       userImg: require("../../assets/images/userImg/userImg.png"),
       userName: "章鱼哥",
       headList: [
@@ -131,12 +132,20 @@ export default {
   methods: {
     linkToOthers(e) {
       console.log(e);
-      if (e == 1) {
-        this.$router.push({ path: "/distribute" });
-      }
-      if (e == 9) {
-        this.$router.push({ path: "/aboutUs" });
-      }
+      let a = {
+        1: "/distribute",
+        2: "/myCard",
+        4: "/map",
+        8: "/aptitude",
+        9: "/aboutUs"
+      };
+      this.$router.push({ path: a[e] });
+    },
+    linkToSettings() {
+      this.$router.push({
+        name: "settings",
+        params: { userid : this.user_id }
+      });
     }
   }
 };

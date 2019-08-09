@@ -43,10 +43,12 @@ import { Tab, Tabs } from "vant";
 
 Vue.use(Tab).use(Tabs);
 
-import { Divider } from 'vant';
-
+import { Divider } from "vant";
 Vue.use(Divider);
 
+import { Field } from "vant";
+
+Vue.use(Field);
 // options 为可选参数，无则不传
 Vue.use(Lazyload);
 Vue.config.productionTip = true;

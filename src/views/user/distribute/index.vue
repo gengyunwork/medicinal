@@ -44,7 +44,7 @@
     </van-cell>
     <div style="padding-top:20px;background:#f5f5f5;"></div>
     <!-- 我的团队 邀请分销 分销说明 -->
-    <van-cell is-link>
+    <van-cell is-link to="myTeam">
       <template slot="title">
         <i class="cell-icon cell-team" slot="icon"></i>
         <span>我的团队</span>

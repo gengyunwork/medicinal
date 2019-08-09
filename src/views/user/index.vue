@@ -34,7 +34,12 @@
           <span>更多功能</span>
         </div>
         <div class="bodyBar2">
-          <div class="bodyItem" v-for="(item, index) in bodyList" :key="index" @click="linkToOthers(item.id)">
+          <div
+            class="bodyItem"
+            v-for="(item, index) in bodyList"
+            :key="index"
+            @click="linkToOthers(item.id)"
+          >
             <div style="width:20px;height:auto;margin:auto">
               <img :src="item.img" alt />
             </div>
@@ -58,12 +63,12 @@ export default {
         {
           img: require("../../assets/images/userImg/noPay.png"),
           title: "待付款",
-          num: 9 ,
+          num: 9
         },
         {
           img: require("../../assets/images/userImg/noSend.png"),
           title: "待发货",
-          num: 9 ,
+          num: 9
         },
         {
           img: require("../../assets/images/userImg/noCome.png"),
@@ -78,58 +83,61 @@ export default {
         {
           img: require("../../assets/images/userImg/mine1.png"),
           title: "我的分销商",
-          id : 1
+          id: 1
         },
         {
           img: require("../../assets/images/userImg/mine2.png"),
           title: "我的名片",
-          id : 2
+          id: 2
         },
         {
           img: require("../../assets/images/userImg/mine3.png"),
           title: "我的收藏",
-          id : 3
+          id: 3
         },
         {
           img: require("../../assets/images/userImg/mine4.png"),
           title: "实体地图",
-          id : 4
+          id: 4
         },
         {
           img: require("../../assets/images/userImg/mine5.png"),
           title: "地址管理",
-          id : 5
+          id: 5
         },
         {
           img: require("../../assets/images/userImg/mine6.png"),
           title: "我的足迹",
-          id : 6
+          id: 6
         },
         {
           img: require("../../assets/images/userImg/mine7.png"),
           title: "联系客服",
-          id : 7
+          id: 7
         },
         {
           img: require("../../assets/images/userImg/mine8.png"),
           title: "药房资质",
-          id : 8
+          id: 8
         },
         {
           img: require("../../assets/images/userImg/mine9.png"),
           title: "关于我们",
-          id : 9
+          id: 9
         }
       ]
     };
   },
-  methods:{
-      linkToOthers(e){
-          console.log(e)
-          if(e == 9){
-               this.$router.push({path:"/aboutUs"})
-          }
+  methods: {
+    linkToOthers(e) {
+      console.log(e);
+      if (e == 1) {
+        this.$router.push({ path: "/distribute" });
       }
+      if (e == 9) {
+        this.$router.push({ path: "/aboutUs" });
+      }
+    }
   }
 };
 </script>

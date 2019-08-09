@@ -54,6 +54,14 @@ export default new Router({
         title: "关于我们"
       },
       component: () => import("./views/user/aboutUs.vue")
+    },
+    {
+      path: "/myTeam",
+      name: "myTeam",
+      meta: {
+        title: "我的团队"
+      },
+      component: () => import("./views/user/distribute/myTeam.vue")
     }
   ]
 });

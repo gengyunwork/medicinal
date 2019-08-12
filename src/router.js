@@ -91,7 +91,6 @@ export default new Router({
       component: () => import("./views/user/distribute/withdraw.vue")
     },
     {
-<<<<<<< HEAD
       path: "/myCard",
       name: "myCard",
       meta: {
@@ -137,8 +136,9 @@ export default new Router({
       meta: {
         title: "设置手机号"
       },
+
       component: () => import("./views/user/settings/changePhone.vue")
-=======
+    }, {
       path: "/record",
       name: "record",
       meta: {
@@ -161,7 +161,6 @@ export default new Router({
         title: "商品详情"
       },
       component: () => import("./views/commodity/commodity.vue")
->>>>>>> 400880ea2fde27bfb564fdf1a5f6676ab79f5394
     }
   ]
 });

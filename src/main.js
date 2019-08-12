@@ -49,6 +49,8 @@ Vue.use(Divider);
 import { Field } from "vant";
 
 Vue.use(Field);
+
+
 // options 为可选参数，无则不传
 Vue.use(Lazyload);
 Vue.config.productionTip = true;

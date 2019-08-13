@@ -1,6 +1,6 @@
 //  订单卡片 购物车卡片  上下分隔
 //  参数@Params
-//     @params data { Object }
+//     @params goodsData { Object }
 //  goodsData具体参数
 //             @id     { Number }    商品id
 //             @imgUrl { goods_img }    商品封面地址
@@ -12,8 +12,10 @@
 //  配置参数
 //  @config
 //       @imgHeight { String }  图片高度，默认100px
+//       @stepChangeFunc { Function } 数量改变时回调
 
-//  事件@event
+// 事件@event
+        numberChagne
 <template>
   <div class="card">
     <div class="card_left">
@@ -22,19 +24,27 @@
       </div>
     </div>
     <div class="card_right">
-      <div class="card_title">{{goodsData.goods_title}}</div>
-      <div class="card_norms">规格:{{goodsData.goods_norms}}</div>
-      <div class="card_main">主治:{{goodsData.goods_main}}</div>
+      <div class="card_title">{{ goodsData.goods_title }}</div>
+      <div class="card_norms">规格:{{ goodsData.goods_norms }}</div>
+      <div class="card_main">主治:{{ goodsData.goods_main }}</div>
       <div class="card_last">
-        <div class="card_price">￥<span>{{goods_total}}</span></div>
-        <van-stepper v-model="goodsData.goods_num"  input-width="40px" button-size="20px"  />
+        <div class="card_price">
+          ￥
+          <span>{{goodsData.goods_price}}</span>
+        </div>
+        <van-stepper
+          :value="goodsData.goods_num"
+          async-change
+          @change="numChange"
+          input-width="40px"
+          button-size="20px"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
 import { Stepper } from "vant";
 export default {
   data() {
@@ -43,30 +53,49 @@ export default {
       goods_title: "",
       goods_norms: "",
       goods_main: "",
-      goods_price:"",
-      goods_num: "",
+      goods_price: "",
+      goods_num: ""
     };
   },
-  computed:{
-    goods_total(){
-        return this.goods_num*this.goods_price;
+  computed: {
+    // goods_total(){
+    //     return this.goods_num*this.goods_price;
+    // }
+  },
+  created() {
+    //  console.log(this.goodsData)
+  },
+  mounted() {},
+
+  methods: {
+    numChange(val) {
+      if (val == this.goodsData.goods_num) {
+        return;
+      }
+      // TODO：请求后台，修改购物车信息
+      this.stepChangeFunc();
+      this.goodsData.goods_num = val;
+      this.$emit("numberChange", this.goodsData);
     }
-  },
-  created(){
-     
-  },
-  mounted(){
-  },
-  methods:{
   },
   name: "gy-goods-card",
   props: {
     goodsData: {
       type: Object,
       value: () => {
-        return { id: "", goods_img: "", goods_title: "", goods_norms: "", goods_price: ""  ,goods_num:'',goods_main:""};
+        return {
+          id: "",
+          goods_img: "",
+          goods_title: "",
+          goods_norms: "",
+          goods_price: "",
+          goods_num: "",
+          goods_main: ""
+        };
       }
-     
+    },
+    stepChangeFunc:{
+      type:Function,
     }
   },
   components: {
@@ -106,8 +135,8 @@ export default {
   align-items: center;
 }
 .card_price {
-  color:#AC0300;
-  font-size:10px;
+  color: #ac0300;
+  font-size: 10px;
 }
 .card_price span {
   font-size: 15px;

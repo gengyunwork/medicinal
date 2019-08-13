@@ -47,6 +47,7 @@
 
 <script>
 import goodsCard from "../../components/goodsCard.vue";
+import { Dialog } from "vant";
 export default {
   data() {
     return {
@@ -127,7 +128,16 @@ export default {
     },
     comfirm() {
       if (this.delMode) {
-        console.log("del", this.cartList.filter(item => item.checked));
+        Dialog.confirm({
+          title: "确认将宝贝删除么？"
+        })
+          .then(() => {
+            // on confirm
+            console.log("del", this.cartList.filter(item => item.checked));
+          })
+          .catch(() => {
+            // on cancel
+          });
         return;
       }
 

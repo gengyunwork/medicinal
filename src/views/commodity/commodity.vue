@@ -27,7 +27,7 @@
           </template>
         </van-cell>
 
-        <van-cell is-link>
+        <van-cell is-link @click="showPromise = true">
           <template slot="title">
             <div style="font-size:8px;">
               说明：
@@ -67,9 +67,18 @@
           <van-button plain round size="small">查看更多评价</van-button>
         </div>
         <!-- 详情 -->
-        <div v-html="detail">45456</div>
+        <div v-html="detail"></div>
+        <img src="../../assets/images/commodity/detail.png" alt srcset />
+        <!-- 相关产品推荐 -->
+        <van-divider :style="{ color: '#333', borderColor: '#333', padding: '0 20px' }">相关产品推荐</van-divider>
+        <van-row gutter="15" class="px-l">
+          <van-col span="12" class="mb" v-for="item in recommentList " :key="item.id">
+            <gy-commodity-card :data="item"></gy-commodity-card>
+          </van-col>
+        </van-row>
         <van-divider>已经到底了</van-divider>
       </van-tab>
+      <!-- 评价选项卡 -->
       <van-tab title="评价">
         <gy-recommend
           v-for="index in 10"
@@ -78,6 +87,7 @@
           :commentData="commentData"
         ></gy-recommend>
       </van-tab>
+      <!-- 详情选项卡 -->
       <van-tab title="详情">详情</van-tab>
     </van-tabs>
     <div class="footer">
@@ -86,11 +96,13 @@
         <br />在线咨询
       </div>
       <div class="icons">
-        <img src="../../assets/images/commodity/cart-grey.jpg" alt />
+        <img v-show="!hasFavorited" src="../../assets/images/commodity/cart-grey.jpg" alt />
+        <img v-show="hasFavorited" src="../../assets/images/commodity/cart-red.jpg" alt />
         <br />购物车
       </div>
       <div class="icons">
-        <img src="../../assets/images/commodity/favorite.jpg" alt />
+        <img v-show="!hasInsertedCart" src="../../assets/images/commodity/favorite.jpg" alt />
+        <img v-show="hasInsertedCart" src="../../assets/images/commodity/favorite-red.jpg" alt />
         <br />收藏
       </div>
       <div class="footerBtn">
@@ -98,16 +110,30 @@
         <span @click="purchase">立即购买</span>
       </div>
     </div>
-    <div class="promise"></div>
+    <div class="promise" :class="{'show':showPromise}" @click="showPromise = false">
+      <h3 class="text-center">服务说明</h3>
+      <van-icon class="mr-s" color="#67B3A6" name="award-o"></van-icon>药监认证
+      <div class="mt mb-l ml-l">药监认证药监认证药监认证药监认证药监认证药监认证</div>
+      <van-icon class="mr-s" color="#67B3A6" name="completed"></van-icon>假一赔十
+      <div class="mt mb-l ml-l">药监认证药监认证药监认证药监认证药监认证药监认证</div>
+      <van-icon class="mr-s" color="#FF0000" name="certificate"></van-icon>甘露发货&售后
+      <div class="mt mb-l ml-l">药监认证药监认证药监认证药监认证药监认证药监认证</div>
+      <van-icon class="mr-s" name="warning-o"></van-icon>不支持七天无理由退换货
+      <div class="mt mb-l ml-l">药监认证药监认证药监认证药监认证药监认证药监认证</div>
+
+      <div class="btn">确定</div>
+    </div>
   </div>
 </template>
 
 <script>
 import { Tag } from "vant";
 import RecommentCard from "./recommendCard";
+import CommodityCard from "../../components/CommodityCard";
 export default {
   data() {
     return {
+      showPromise: false,
       images: [
         "https://img.yzcdn.cn/vant/apple-1.jpg",
         "https://img.yzcdn.cn/vant/apple-2.jpg"
@@ -126,7 +152,46 @@ export default {
         commodity: "雪域珍宝",
         favorite: 20,
         comment: 5
-      }
+      },
+      hasInsertedCart: true,
+      hasFavorited: true,
+      recommentList: [
+        {
+          id: 0,
+          imgUrl: require("../../assets/images/medicinal.png"),
+          title: "脑梗，血栓",
+          desc: "七十味中药材就、+二十五味珍珠丸",
+          price: 360
+        },
+        {
+          id: 2,
+          imgUrl: require("../../assets/images/medicinal.png"),
+          title: "脑梗，血栓",
+          desc: "七十味中药材就、+二十五味珍珠丸",
+          price: 360
+        },
+        {
+          id: 3,
+          imgUrl: require("../../assets/images/medicinal.png"),
+          title: "脑梗，血栓",
+          desc: "七十味中药材就、+二十五味珍珠丸",
+          price: 360
+        },
+        {
+          id: 4,
+          imgUrl: require("../../assets/images/medicinal.png"),
+          title: "脑梗，血栓",
+          desc: "七十味中药材就、+二十五味珍珠丸",
+          price: 360
+        },
+        {
+          id: 5,
+          imgUrl: require("../../assets/images/medicinal.png"),
+          title: "脑梗，血栓",
+          desc: "七十味中药材就、+二十五味珍珠丸",
+          price: 360
+        }
+      ]
     };
   },
   methods: {
@@ -152,7 +217,8 @@ export default {
   },
   components: {
     [Tag.name]: Tag,
-    [RecommentCard.name]: RecommentCard
+    [RecommentCard.name]: RecommentCard,
+    [CommodityCard.name]: CommodityCard
   }
 };
 </script>
@@ -211,9 +277,25 @@ export default {
   width: 100vw;
   top: 100vh;
   left: 0;
+  padding: 12px 16px;
   background-color: white;
+  overflow: hidden;
+  transition: top 0.5s, outline 0.8s;
   &.show {
-    top: 60vh;
+    top: 40vh;
+    outline: 40vh solid rgba(0, 0, 0, 0.5);
+  }
+  .btn{
+    position: absolute;
+    bottom: 20px;
+    left: 15%;
+    right: 15%;
+    height: 30px;
+    padding:6px 0;
+    text-align: center;
+    background: $base-red;
+    color:white;
+    border-radius: 12px;
   }
 }
 </style>

@@ -4,9 +4,7 @@
       <!-- <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>-->
     </div>
-    <transition name="van-fade">
-      <router-view />
-    </transition>
+    <router-view />
 
     <!-- 底部导航栏 -->
     <section class="home-bar" v-show="showTab">

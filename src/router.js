@@ -161,6 +161,23 @@ export default new Router({
         title: "商品详情"
       },
       component: () => import("./views/commodity/commodity.vue")
+    },
+    {
+      path: "/address",
+      name: "address",
+      meta: {
+        title: "地址管理"
+      },
+      component: () => import("./views/user/address/index.vue")
+    },
+    ,
+    {
+      path: "/addressform",
+      name: "addressform",
+      meta: {
+        title: "地址管理"
+      },
+      component: () => import("./views/user/address/addressForm.vue")
     }
   ]
 });

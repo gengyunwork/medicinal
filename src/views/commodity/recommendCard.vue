@@ -1,6 +1,6 @@
 // 评论卡片组件
 <template>
-  <div class="card">
+  <div class="recommend-card">
     <div class="header">
       <div>
         <van-image
@@ -44,10 +44,10 @@ export default {
 </script>
 
 <style lang="scss">
-.card {
+.recommend-card {
   padding: 10px 22px;
 }
-.card > {
+.recommend-card > {
   .header,
   .footer {
     display: flex;

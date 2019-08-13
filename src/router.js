@@ -177,6 +177,14 @@ export default new Router({
         title: "地址管理"
       },
       component: () => import("./views/user/address/addressForm.vue")
+    },
+    {
+      path: "/lists",
+      name: "lists",
+      meta: {
+        title: "我的订单"
+      },
+      component: () => import("./views/user/lists.vue")
     }
   ]
 });

@@ -91,6 +91,54 @@ export default new Router({
       component: () => import("./views/user/distribute/withdraw.vue")
     },
     {
+      path: "/myCard",
+      name: "myCard",
+      meta: {
+        title: "我的名片"
+      },
+      component: () => import("./views/user/myCard.vue")
+    },
+    {
+      path: "/map",
+      name: "map",
+      meta: {
+        title: "实体地图"
+      },
+      component: () => import("./views/user/map.vue")
+    },
+    {
+      path: "/aptitude",
+      name: "aptitude",
+      meta: {
+        title: "药房资质"
+      },
+      component: () => import("./views/user/aptitude.vue")
+    },
+    {
+      path: "/settings",
+      name: "settings",
+      meta: {
+        title: "账号设置"
+      },
+      component: () => import("./views/user/settings/index.vue")
+    },
+    {
+      path: "/changeName",
+      name: "changeName",
+      meta: {
+        title: "更换昵称"
+      },
+      component: () => import("./views/user/settings/changeName.vue")
+    },
+    {
+      path: "/changePhone",
+      name: "changePhone",
+      meta: {
+        title: "设置手机号"
+      },
+
+      component: () => import("./views/user/settings/changePhone.vue")
+    }, {
       path: "/record",
       name: "record",
       meta: {

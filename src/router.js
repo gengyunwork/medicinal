@@ -170,7 +170,6 @@ export default new Router({
       },
       component: () => import("./views/user/address/index.vue")
     },
-    ,
     {
       path: "/addressform",
       name: "addressform",

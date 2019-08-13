@@ -16,10 +16,18 @@
     </div>
     <!-- 购物车列表 -->
     <template v-else>
+      <div class="p bg-red text-white" style="display:flex;justify-content:space-between;">
+        <span>选择了{{count}}件宝贝</span>
+        <span @click="modeChange">&nbsp;{{delMode?'完成':'管理'}}&nbsp;</span>
+      </div>
       <div class="cart-item" v-for="(good, index) in cartList" :key="index">
         <van-icon v-show="!good.checked" name="circle" @click="checkItem(good)"></van-icon>
         <van-icon v-show="good.checked" name="checked" color="#ac0300" @click="checkItem(good)"></van-icon>
-        <gy-goods-card :goodsData="good" @numberChange="updateNumber"></gy-goods-card>
+        <gy-goods-card
+          :goodsData="good"
+          @numberChange="computedPrice"
+          :stepChangeFunc="updateNumber"
+        ></gy-goods-card>
       </div>
     </template>
     <div class="bottom-bar">
@@ -32,15 +40,7 @@
         ></van-icon>&nbsp;全选
         <span class="ml-l">合计:￥{{cash}}</span>
       </div>
-      <div>
-        <van-icon
-          name="delete"
-          @click="deleteCart"
-          size="18"
-          style="vertical-align:middle;margin-right:16px;"
-        ></van-icon>
-        <span class="bg-red text-white radius px-l py-s" @click="comfirm">结算</span>
-      </div>
+      <span class="bg-red text-white radius px-l py-s" @click="comfirm">{{delMode?'删除':'结算'}}</span>
     </div>
   </div>
 </template>
@@ -52,6 +52,8 @@ export default {
     return {
       selectedAll: false,
       cash: 0,
+      count: 0,
+      delMode: false,
       cartList: [
         {
           id: 0,
@@ -110,18 +112,38 @@ export default {
       this.computedPrice();
     },
     updateNumber(data) {
-      this.computedPrice();
+      console.log("updateNumber");
     },
-    computedPrice() {
+    computedPrice(goods) {
+      this.count = 0;
       this.cash = this.cartList.reduce((pre, cur) => {
-        return pre + (cur.checked ? cur.goods_num * cur.goods_price : 0);
+        let p = 0;
+        if (cur.checked) {
+          this.count += cur.goods_num;
+          p = cur.goods_num * cur.goods_price;
+        }
+        return pre + p;
       }, 0);
     },
     comfirm() {
+      if (this.delMode) {
+        console.log("del", this.cartList.filter(item => item.checked));
+        return;
+      }
+
       console.log(this.cash);
     },
     deleteCart() {
       console.log(this.cartList.filter(item => item.checked));
+    },
+    resetCheckStatus() {
+      this.cartList.forEach(item => (item.checked = false));
+    },
+    modeChange() {
+      this.delMode = !this.delMode;
+      this.cash = 0;
+      this.count = 0;
+      this.resetCheckStatus();
     }
   },
   components: {

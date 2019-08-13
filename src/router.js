@@ -138,7 +138,8 @@ export default new Router({
       },
 
       component: () => import("./views/user/settings/changePhone.vue")
-    }, {
+    },
+    {
       path: "/record",
       name: "record",
       meta: {
@@ -177,6 +178,14 @@ export default new Router({
         title: "地址管理"
       },
       component: () => import("./views/user/address/addressForm.vue")
+    },
+    {
+      path: "/orderdetail",
+      name: "orderdetail",
+      meta: {
+        title: "订单详情"
+      },
+      component: () => import("./views/cart/goodsOrder.vue")
     }
   ]
-});
+})

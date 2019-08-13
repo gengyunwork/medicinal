@@ -1,6 +1,6 @@
 //  订单卡片 购物车卡片  上下分隔
 //  参数@Params
-//     @params data { Object }
+//     @params goodsData { Object }
 //  goodsData具体参数
 //             @id     { Number }    商品id
 //             @imgUrl { goods_img }    商品封面地址
@@ -12,6 +12,7 @@
 //  配置参数
 //  @config
 //       @imgHeight { String }  图片高度，默认100px
+//       @stepChangeFunc { Function } 数量改变时回调
 
 // 事件@event
         numberChagne
@@ -72,6 +73,7 @@ export default {
         return;
       }
       // TODO：请求后台，修改购物车信息
+      this.stepChangeFunc();
       this.goodsData.goods_num = val;
       this.$emit("numberChange", this.goodsData);
     }
@@ -91,6 +93,9 @@ export default {
           goods_main: ""
         };
       }
+    },
+    stepChangeFunc:{
+      type:Function,
     }
   },
   components: {

@@ -10,12 +10,10 @@
 // 配置参数
 // @config
       @imgHeight { String }  图片高度，默认100px
-
 // 事件@event
     @card-click 点击卡片回调
     @icon-click 点击右下图标回调
-
-  <template>
+<template>
   <van-row class="commodity-card" @click.native="cardClick">
     <van-col span="24" class="card-img" :style="{ 'height':imgHeight }">
       <img style="height:100%;" v-lazy="data.imgUrl" />

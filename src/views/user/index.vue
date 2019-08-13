@@ -79,7 +79,7 @@ export default {
         },
         {
           img: require("../../assets/images/userImg/finish.png"),
-          title: "售货/退款",
+          title: "完成/退款",
            id: 3,
         }
       ],

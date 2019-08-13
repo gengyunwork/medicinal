@@ -18,9 +18,8 @@
       <br />
       <!-- 选项卡 -->
       <div class="headBar">
-        <div class="headItem" v-for="(item,index) in headList" :key="index">
+        <div class="headItem" v-for="(item,index) in headList" :key="index" @click="linkToLists(item.id)">
           <div style="width:30px;height:30px;margin:auto;">
-            <!-- <img :src="item.img" alt /> -->
             <van-icon :name="item.img" size="30" :info="item.num" />
           </div>
           <div style="margin-top:10px;">
@@ -64,20 +63,24 @@ export default {
         {
           img: require("../../assets/images/userImg/noPay.png"),
           title: "待付款",
+          id: 0,
           num: 9
         },
         {
           img: require("../../assets/images/userImg/noSend.png"),
           title: "待发货",
+           id: 1,
           num: 9
         },
         {
           img: require("../../assets/images/userImg/noCome.png"),
-          title: "待收货"
+          title: "待收货",
+           id: 2,
         },
         {
           img: require("../../assets/images/userImg/finish.png"),
-          title: "售货/退款"
+          title: "售货/退款",
+           id: 3,
         }
       ],
       bodyList: [
@@ -140,6 +143,10 @@ export default {
         9: "/aboutUs"
       };
       this.$router.push({ path: a[e] });
+    },
+    linkToLists(e){
+      console.log(e)
+       this.$router.push({ name: 'lists' ,params:{active : e}});
     },
     linkToSettings() {
       this.$router.push({

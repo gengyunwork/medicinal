@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model="active" animated>
+    <van-tabs v-model="active" animated title-active-color="#ac0300">
       <van-tab title="全部">
         <!--
             全
@@ -326,8 +326,11 @@ export default {
           ]
         }
       ],
-      active: 0
+      active: "",
     };
+  },
+  created(){
+      this.active = this.$route.params.active;
   },
   methods: {
     showToast0() {

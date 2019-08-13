@@ -54,6 +54,10 @@ a {
   background-color:$base-bg-color;
 }
 
+.bg-red{
+  background-color:$base-red;
+}
+
 .radius {
   border-radius: 8px;
 }
@@ -110,6 +114,15 @@ a {
   &-s {
     margin-right: 6px;
     margin-left: 6px;
+  }
+}
+.mt {
+  margin-top: 12px;
+  &-l {
+    margin-top: 18px;
+  }
+  &-s {
+    margin-top: 6px;
   }
 }
 

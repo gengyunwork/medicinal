@@ -16,9 +16,9 @@
     @icon-click 点击右下图标回调
 
   <template>
-  <van-row class="card" @click.native="cardClick">
+  <van-row class="commodity-card" @click.native="cardClick">
     <van-col span="24" class="card-img" :style="{ 'height':imgHeight }">
-      <img v-lazy="data.imgUrl" />
+      <img style="height:100%;" v-lazy="data.imgUrl" />
     </van-col>
     <van-col span="24">
       <van-row class="card-body">
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
+.commodity-card {
   background-color: $base-bg-color;
   line-height: 1.4;
   border-radius: 6px;

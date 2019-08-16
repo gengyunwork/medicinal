@@ -186,7 +186,8 @@ export default new Router({
         title: "我的订单"
       },
       component: () => import("./views/user/lists.vue")
-    }, {
+    }, 
+    {
       path: "/orderdetail",
       name: "orderdetail",
       meta: {

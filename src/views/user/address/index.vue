@@ -37,33 +37,32 @@ export default {
   data() {
     return {
       addressList: [
-        // {
-        //   id: 0,
-        //   name: "李若云",
-        //   mobile: "13695487569",
-        //   address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
-        //   isDefault: true
-        // },
-        // {
-        //   id: 1,
-        //   name: "李若云",
-        //   mobile: "13695487569",
-        //   address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
-        //   isDefault: false
-        // },
-        // {
-        //   id: 2,
-        //   name: "李若云",
-        //   mobile: "13695487569",
-        //   address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
-        //   isDefault: false
-        // }
+        {
+          id: 0,
+          name: "李若云",
+          mobile: "13695487569",
+          address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
+          isDefault: true
+        },
+        {
+          id: 1,
+          name: "李若云",
+          mobile: "13695487569",
+          address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
+          isDefault: false
+        },
+        {
+          id: 2,
+          name: "李若云",
+          mobile: "13695487569",
+          address: "黑龙江省哈尔滨市南岗区什哈合作孵化器",
+          isDefault: false
+        }
       ]
     };
   },
   methods: {
     editAddress(id) {
-      console.log(id);
       this.$router.push({ name: "addressform", query: { id } });
     },
     deleteAddress(id) {

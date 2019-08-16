@@ -125,6 +125,8 @@
                 v-for="(value , index1) in item.cardList"
                 :key="index1"
                 :data="value"
+                @card-click="$router.push('/detail')"
+                @icon-click="$router.push('/detail')"
                 class="cardItem"
               ></gy-commodity-card>
             </div>

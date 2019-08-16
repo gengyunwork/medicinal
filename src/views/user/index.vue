@@ -139,6 +139,7 @@ export default {
         1: "/distribute",
         2: "/myCard",
         4: "/map",
+        5: "/address",
         8: "/aptitude",
         9: "/aboutUs"
       };

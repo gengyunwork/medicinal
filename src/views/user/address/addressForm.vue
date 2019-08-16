@@ -8,7 +8,7 @@
       placeholder="请输入手机号"
       right-icon="arrow"
     />
-    <van-cell title="所在地区" is-link value @click="show = true" />
+    <van-cell title="所在地区" is-link :value="region" @click="show = true" />
     <van-field v-model="addressDetail" type="textarea" placeholder="请填写街道，门牌号等" rows="5" autosize />
     <div class="p-l bg-grey">
       <van-button :block="true" type="primary" class="bg-red" style="border:0;" @click="submit">保存</van-button>
@@ -43,6 +43,7 @@ export default {
       this.show = false;
     },
     submit() {
+      this.$router.back();
       console.log({
         name: this.name,
         mobile: this.mobile,

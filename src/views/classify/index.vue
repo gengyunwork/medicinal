@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     toDetail(data) {
+      this.$router.push("/detail?id=" + data.id);
       console.log(data);
     }
   },
